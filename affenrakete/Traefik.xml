@@ -64,5 +64,5 @@
        Description="This is Traefik Web UI port you can access via a web browser.">8080</Config>
 
   <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik2" Mode="rw" Display="always" Required="true"
-       Description="This is where Traefik will store its configuration.">/mnt/user/appdata/Sync</Config>
+       Description="This is where Traefik will store its configuration.">/mnt/user/appdata/traefik2</Config>
 </Container>
