@@ -2,7 +2,7 @@
 <Container version="2">
   <Date>2020-04-12</Date>
   <Beta>True</Beta>
-  <Category>Cloud:</Category>
+  <Category>Network:Web Network:Proxy</Category>
   <Name>Traefik</Name>
   <Project>https://containo.us/traefik/</Project>
   <Changes>
@@ -16,6 +16,7 @@
     Simplify networking complexity while designing, deploying, and running applications.
   </Description>
   <GitHub>https://github.com/affenrakete/unraid_templates</GitHub>
+  <TemplateURL>https://raw.githubusercontent.com/affenrakete/unraid_templates/master/affenrakete/Traefik.xml</TemplateURL>
   <Repository>traefik:latest</Repository>
   <Support>https://github.com/affenrakete/unraid_templates/issues</Support>
   <BindTime>true</BindTime>
@@ -25,17 +26,17 @@
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>20080</HostPort>
+        <HostPort>80</HostPort>
         <ContainerPort>80</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort>20433</HostPort>
+        <HostPort>433</HostPort>
         <ContainerPort>433</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort>28080</HostPort>
+        <HostPort>8080</HostPort>
         <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -53,15 +54,15 @@
 
   <Network Default="bridge">bridge</Network>
 
-  <Config Type="Port" Name="Web Interface Port" Target="80" Default="20080" Mode="tcp" Display="always-hide" Required="true"
+  <Config Type="Port" Name="http proxy port" Target="80" Default="80" Mode="tcp" Display="always" Required="true"
        Description="This is Traefik Proxy http port.">80</Config>
 
-  <Config Type="Port" Name="TCP Data Transfer Port" Target="443" Default="20443" Mode="tcp" Display="advanced-hide" Required="true"
+  <Config Type="Port" Name="https proxy port" Target="443" Default="443" Mode="tcp" Display="always" Required="true"
        Description="This is Traefik Proxy https port.">443</Config>
 
-  <Config Type="Port" Name="UDP Data Transfer Port" Target="8080" Default="28080" Mode="udp" Display="advanced-hide" Required="true"
+  <Config Type="Port" Name="Traefik Web UI Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true"
        Description="This is Traefik Web UI port you can access via a web browser.">8080</Config>
 
-  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik2" Mode="rw" Display="advanced-hide" Required="true"
+  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik2" Mode="rw" Display="always" Required="true"
        Description="This is where Traefik will store its configuration.">/mnt/user/appdata/Sync</Config>
 </Container>
