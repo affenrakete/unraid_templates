@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
   <Date>2020-04-12</Date>
-  <Beta>True</Beta>
-  <Category>Network:Web Network:Proxy</Category>
   <Name>Traefik</Name>
+  <Category>Network:Web Network:Proxy</Category>
+  
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  
+  <Repository>traefik:latest</Repository>
   <Project>https://containo.us/traefik/</Project>
+  
+  <Icon>https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png</Icon>
+  
+  <GitHub>https://github.com/affenrakete/unraid_templates</GitHub>
+  <TemplateURL>https://raw.githubusercontent.com/affenrakete/unraid_templates/master/affenrakete/Traefik.xml</TemplateURL>
+  <Support>https://github.com/affenrakete/unraid_templates/issues</Support>
+  
+  <Beta>True</Beta>
+
   <Changes>
 [font size=3]2020.04.12[/font]
 - Initial Release
   </Changes>
+  
   <Overview>
     Simplify networking complexity while designing, deploying, and running applications.
   </Overview>
+  
   <Description>
     Simplify networking complexity while designing, deploying, and running applications.
   </Description>
-  <GitHub>https://github.com/affenrakete/unraid_templates</GitHub>
-  <TemplateURL>https://raw.githubusercontent.com/affenrakete/unraid_templates/master/affenrakete/Traefik.xml</TemplateURL>
-  <Repository>traefik:latest</Repository>
-  <Support>https://github.com/affenrakete/unraid_templates/issues</Support>
+ 
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  
   <Environment/>
+
+  <Labels>
+    <Label>
+	  <Name>traefik.enable</Name>
+      <Value>true</Value>
+      <Mode/>
+    </Label>
+  </Labels>
+
+<!--
   <Networking>
-    <Mode>host</Mode>
+    <Mode>bridge</Mode>
     <Publish>
       <Port>
         <HostPort>80</HostPort>
@@ -42,6 +64,8 @@
       </Port>
     </Publish>
   </Networking>
+-->
+  
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/traefik2</HostDir>
@@ -49,10 +73,9 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png</Icon>
 
-  <Network Default="host">host</Network>
+<!--
+  <Network Default="bridge">bridge</Network>
 
   <Config Type="Port" Name="http proxy port" Target="80" Default="80" Mode="tcp" Display="always" Required="true"
        Description="This is Traefik Proxy http port.">80</Config>
@@ -65,4 +88,6 @@
 
   <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik2" Mode="rw" Display="always" Required="true"
        Description="This is where Traefik will store its configuration.">/mnt/user/appdata/traefik2</Config>
+-->
+
 </Container>
