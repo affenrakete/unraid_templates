@@ -54,10 +54,10 @@
   <Network Default="bridge">bridge</Network>
 
   <Config Type="Port" Name="Web Interface Port" Target="80" Default="20080" Mode="tcp" Display="always-hide" Required="true"
-       Description="This is Traefik Proxy port.">80</Config>
+       Description="This is Traefik Proxy http port.">80</Config>
 
   <Config Type="Port" Name="TCP Data Transfer Port" Target="443" Default="20443" Mode="tcp" Display="advanced-hide" Required="true"
-       Description="This is Traefik Proxy port.">443</Config>
+       Description="This is Traefik Proxy https port.">443</Config>
 
   <Config Type="Port" Name="UDP Data Transfer Port" Target="8080" Default="28080" Mode="udp" Display="advanced-hide" Required="true"
        Description="This is Traefik Web UI port you can access via a web browser.">8080</Config>
