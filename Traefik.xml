@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Date>2020-04-12</Date>
+  <Beta>True</Beta>
+  <Category>Cloud:</Category>
+  <Name>Traefik</Name>
+  <Project>https://containo.us/traefik/</Project>
+  <Changes>
+[font size=3]2020.04.12[/font]
+- Initial Release
+  </Changes>
+  <Overview>
+    Simplify networking complexity while designing, deploying, and running applications.
+  </Overview>
+  <Description>
+    Simplify networking complexity while designing, deploying, and running applications.
+  </Description>
+  <GitHub>https://github.com/affenrakete/unraid_templates</GitHub>
+  <Repository>traefik:latest</Repository>
+  <Support>https://github.com/affenrakete/unraid_templates/issues</Support>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>20080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>20433</HostPort>
+        <ContainerPort>433</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>28080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/traefik2</HostDir>
+      <ContainerDir>/etc/traefik</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png</Icon>
+
+  <Network Default="bridge">bridge</Network>
+
+  <Config Type="Port" Name="Web Interface Port" Target="80" Default="20080" Mode="tcp" Display="always-hide" Required="true"
+       Description="This is Traefik Proxy port.">80</Config>
+
+  <Config Type="Port" Name="TCP Data Transfer Port" Target="443" Default="20443" Mode="tcp" Display="advanced-hide" Required="true"
+       Description="This is Traefik Proxy port.">443</Config>
+
+  <Config Type="Port" Name="UDP Data Transfer Port" Target="8080" Default="28080" Mode="udp" Display="advanced-hide" Required="true"
+       Description="This is Traefik Web UI port you can access via a web browser.">8080</Config>
+
+  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik2" Mode="rw" Display="advanced-hide" Required="true"
+       Description="This is where Traefik will store its configuration.">/mnt/user/appdata/Sync</Config>
+</Container>
